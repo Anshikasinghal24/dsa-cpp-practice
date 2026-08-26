@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    int arr[n];
+
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    for (int i = 0; i < n; i++) {
+        bool counted = false;
+
+        // Check if this element was already counted
+        for (int k = 0; k < i; k++) {
+            if (arr[i] == arr[k]) {
+                counted = true;
+                break;
+            }
+        }
+
+        if (counted)
+            continue;
+
+        int count = 0;
+
+        // Count frequency
+        for (int j = 0; j < n; j++) {
+            if (arr[i] == arr[j]) {
+                count++;
+            }
+        }
+
+        cout << arr[i] << " occurs " << count << " times" << endl;
+    }
+
+    return 0;
+}
